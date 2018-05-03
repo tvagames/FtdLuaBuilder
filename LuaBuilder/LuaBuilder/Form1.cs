@@ -86,10 +86,15 @@ namespace LuaBuilder
                 return;
             }
 
+            var old = (string)this.targetList.SelectedItem;
             this.targetList.Items.Clear();
             foreach (var f in d.GetFiles())
             {
                 this.targetList.Items.Add(f.Name);
+                if (f.Name == old)
+                {
+                    this.targetList.SelectedItem = old;
+                }
             }
         }
 
